@@ -1,17 +1,10 @@
-<html>
-    <head>
-        <title>Alarmas</title>
-    </head>
-    <body>
+{% extends "alarmas/layout.html" %}
+{block body %}
         <h1>Alarmas del sistema</h1>
         <u1>
             {% for in alarma in  alarmas %}
             <li>{{alarma}}</li>
             {% end for}
         </u1>
-        
-      
-
-    </body>
-    
-</html>
+        <a href="{% url 'v2' %}">agregar nueva alarma</a> 
+{% endblock %}

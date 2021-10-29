@@ -1,0 +1,9 @@
+{& extends "alarma/layout.html" %}
+{% block body %}
+      <h1>nueva alarma</h1>
+      <form action= "{% url 'alarmas:index' %}">
+          <input type="text" name="alarma">
+          <input type="submit">
+      </form>
+      <a href="{% url 'alarmas:index' %}">ver alarmas</a>
+{% endblock %}
