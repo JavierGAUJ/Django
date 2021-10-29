@@ -4,7 +4,7 @@ alarmas =['5:30', '5:35', '5:40', '5:50']
 
 # Create your views here.
 
-def alarmas(request):
+def index(request):
     return render(request, 'alarmas/index.html', {'alarmas':alarmas})
 
 def v2(request):

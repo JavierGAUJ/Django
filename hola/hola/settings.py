@@ -32,8 +32,9 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'dia',
     'principal',
+    'dia',
+    'alarmas',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
