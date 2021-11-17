@@ -19,9 +19,9 @@ def v2(request):
             alarma = form.claenned_data['Nueva alarma']
             request.session["alarmas"] += [alarma]
             return HttpResponseRedirect(reverse('alarmas:index'))
-            else:
+        else:
                 return render(request, 'alarmas/v2.html', {'cont_form':form})
-            else:
+    else:
                 return render(request, 'alarmas/v2.html', {'cont_form':FnuevaAlarma()})
 
 
