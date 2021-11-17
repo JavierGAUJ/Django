@@ -1,11 +1,32 @@
+from django.urls import reverse
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
+from django import forms
 
-alarmas =['5:30', '5:35', '5:40', '5:50']
+
 
 # Create your views here.
 
 def index(request):
-    return render(request, 'alarmas/index.html', {'alarmas':alarmas})
+    if "alarmas " not in request.session:
+        request.session["alarmas"] = ['5:30', '5:35', '5:40', '5:50']
+    return render(request, 'alarmas/index.html', {'alarmas':request.session["alarmas"]})
 
 def v2(request):
-    return render(request, 'alarmas/v2.html')
+    if request.methood == 'POST':
+        form =FnuevaAlarma(request.POST)
+        if form. is_valid():
+            alarma = form.claenned_data['Nueva alarma']
+            request.session["alarmas"] += [alarma]
+            return HttpResponseRedirect(reverse('alarmas:index'))
+            else:
+                return render(request, 'alarmas/v2.html', {'cont_form':form})
+            else:
+                return render(request, 'alarmas/v2.html', {'cont_form':FnuevaAlarma()})
+
+
+class FnuevaAlarma(forms.form): 
+    alarma = forms.CharField('nueva_alarma')
+
+
+    # snooze = forms.Intergerfield(label='Repetir', min_value=0, max_value=10)
