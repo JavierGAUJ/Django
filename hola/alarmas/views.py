@@ -7,24 +7,20 @@ from django.urls import reverse
 
 def index(request):
     if "alarmas " not in request.session:
-        request.session["alarmas"] = ['5:30', '5:35', '5:40', '5:50']
+        request.session["alarmas"] = ['5:30', '5:35']
     return render(request, 'alarmas/index.html', {'alarmas':request.session["alarmas"]})
 
 def v2(request):
-    if request.methood == 'POST':
-        form =FnuevaAlarma(request.POST)
-        if form. is_valid():
+    if request.method == 'POST':
+        form = FNuevaAlarma(request.POST)
+        if form.is_valid():
             alarma = form.cleaned_data['alarma']
             request.session["alarmas"] += [alarma]
             return HttpResponseRedirect(reverse('alarmas:index'))
         else:
                 return render(request, 'alarmas/v2.html', {'cont_form':form})
     else:
-                return render(request, 'alarmas/v2.html', {'cont_form':FnuevaAlarma()})
-
-
-class FnuevaAlarma(forms.form): 
-    alarma = forms.CharField(label='nueva_alarma')
-
-
-    # snooze = forms.Intergerfield(label='Repetir', min_value=0, max_value=10)
+        return render(request, 'alarmas/v2.html', {'cont_form':FNuevaAlarma()})
+        
+class FNuevaAlarma(forms.Form): 
+    alarma = forms.CharField(label='nueva alarma')
