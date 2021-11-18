@@ -1,7 +1,7 @@
 {& extends "alarma/layout.html" %}
 {% block body %}
       <h1>nueva alarma</h1>
-      <form action= "{% url 'alarmas:index' %}" metod="post">
+      <form action= "{% url 'alarmas:v2' %}" metod="post">
           {% csrf_token %}
           {( cont_form )}
           <input type="submit">
