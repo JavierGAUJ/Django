@@ -16,11 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from hola.alarmas.views import alarmas 
-
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('principal/', include('principal.urls')),
     path('dia/', include('dia.urls')),
-    path('alarmas/', include ('alarmas.urls')),
+    path('alarmas/', include('alarmas.urls')),
+    path('aereolina/', include('aereolina.urls')),
 ]

@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'principal',
     'dia',
     'alarmas',
+    'aereolina',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

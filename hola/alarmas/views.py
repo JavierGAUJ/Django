@@ -16,7 +16,7 @@ def v2(request):
     if request.methood == 'POST':
         form =FnuevaAlarma(request.POST)
         if form. is_valid():
-            alarma = form.claenned_data['Nueva alarma']
+            alarma = form.cleaned_data['alarma']
             request.session["alarmas"] += [alarma]
             return HttpResponseRedirect(reverse('alarmas:index'))
         else:
@@ -26,7 +26,7 @@ def v2(request):
 
 
 class FnuevaAlarma(forms.form): 
-    alarma = forms.CharField('nueva_alarma')
+    alarma = forms.CharField(label='nueva_alarma')
 
 
     # snooze = forms.Intergerfield(label='Repetir', min_value=0, max_value=10)
