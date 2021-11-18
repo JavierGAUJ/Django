@@ -2,9 +2,12 @@
 {block body %}
         <h1>Alarmas del sistema</h1>
         <u1>
-            {% for in alarma in  alarmas %}
-            <li>{{alarma}}</li>
+            {% for alarma in  alarmas %}
+            <li>{{ alarma }}</li>
             {% end for}
+            {% for nalarma in alarmas_nuevas %}
+            <li>{( alarma )}/li>
+            {% end for %}
         </u1>
-        <a href="{% url 'v2' %}">agregar nueva alarma</a> 
+        <a href="{% url 'alarmas:v2' %}">agregar nueva alarma</a> 
 {% endblock %}
