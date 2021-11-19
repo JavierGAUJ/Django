@@ -1,0 +1,8 @@
+{% extends "aereolina/layout.html" %}
+{% block body %}
+<h1>Vuelo {{flight.id}}</h1>
+<u1>
+    <li>  origen: {(flight.origin)}}</li>
+    <li> destino: {{flight.destination}}</li>
+    <li> duracion: {{flight.duration}} </li>
+</u1>

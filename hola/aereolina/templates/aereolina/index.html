@@ -3,6 +3,10 @@
 <h1>Vuelos</h1>
 <u1>
     {% for flight in flights %}
-    <li> vuelo {(flight.id)}: de {(fligth.origin)} a {(fligth.destination)}</li>
+    <li>
+        <a href="{%url 'aereolina:flight' flight.id %"}>
+         vuelo {(flight.id)}: de {(fligth.origin)} a {(fligth.destination)}
+        </a>
+        </li>
     {% endfor %}
 </u1>
